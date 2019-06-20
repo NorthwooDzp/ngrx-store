@@ -5,17 +5,21 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyCounterComponent } from './my-counter/my-counter.component';
-import { counterReducer } from './counter-redux';
+import { counterReducer, loginReducer } from './counter-redux';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         AppComponent,
-        MyCounterComponent
+        MyCounterComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        StoreModule.forRoot({count: counterReducer})
+        FormsModule,
+        StoreModule.forRoot({count: counterReducer, login: loginReducer})
     ],
     providers: [],
     bootstrap: [AppComponent]
