@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 
 import * as scoreBoardReducer from '../scoreboard-redux/scoreboard-reducer';
+import { ScoreboardRoutingModule } from './scoreboard-routing.module';
+import { ScoreboardComponent } from './components';
 
 @NgModule({
-    declarations: [],
+    declarations: [ScoreboardComponent],
     imports: [
         CommonModule,
-        StoreModule.forFeature('game', scoreBoardReducer.reducer)
+        ScoreboardRoutingModule,
+        StoreModule.forFeature( 'game', scoreBoardReducer.reducer)
     ]
 })
 export class ScoreboardModule {

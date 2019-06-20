@@ -5,21 +5,16 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ScoreboardModule } from './scoreboard/scoreboard.module';
-import { ScoreboardComponent } from './scoreboard/components';
-
 
 @NgModule({
     declarations: [
-        AppComponent,
-        ScoreboardComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        StoreModule.forRoot({}),
-        ScoreboardModule
+        StoreModule.forRoot({})
     ],
     providers: [],
     bootstrap: [AppComponent]
