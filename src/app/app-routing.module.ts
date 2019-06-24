@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: 'todo',
-        loadChildren: () => import('./modules/todo/todo.module').then(mod => mod.TodoModule)
+        path: 'products',
+        loadChildren: () => import('./modules/products/products.module').then(mod => mod.ProductsModule)
     },
     {
         path: '**',
-        redirectTo: 'todo'
+        redirectTo: 'products'
     }
 ];
 
