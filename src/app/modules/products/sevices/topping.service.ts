@@ -10,7 +10,7 @@ import { Topping } from '../models/topping.model';
     providedIn: 'root'
 })
 export class ToppingService {
-    baseUrl: string = `baseUrl: string = \`${environment.baseUrl}/toppings`;
+    baseUrl: string = `${environment.baseUrl}/toppings`;
 
     constructor(private http: HttpClient) {
     }

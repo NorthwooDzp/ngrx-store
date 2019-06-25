@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { Pizza } from '../../models/pizza.model';
@@ -10,9 +10,12 @@ import { map } from 'rxjs/operators';
     templateUrl: './pizza-form.component.html',
     styleUrls: ['./pizza-form.component.scss']
 })
-export class PizzaFormComponent implements OnInit, OnChanges {
+export class PizzaFormComponent implements OnChanges {
     exists: boolean = false;
-    form: FormGroup;
+    form: FormGroup = new FormGroup({
+        name: new FormControl('', [Validators.required]),
+        toppings: new FormControl([])
+    });
 
     @Input() pizza: Pizza;
     @Input() toppings: Topping[];
@@ -32,13 +35,6 @@ export class PizzaFormComponent implements OnInit, OnChanges {
 
     get nameControlInvalid(): boolean {
         return this.nameControl.hasError('required') && this.nameControl.touched;
-    }
-
-    ngOnInit(): void {
-        this.form = new FormGroup({
-            name: new FormControl('', [Validators.required]),
-            toppings: new FormArray([])
-        });
     }
 
     ngOnChanges(): void {

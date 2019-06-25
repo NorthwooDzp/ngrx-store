@@ -23,7 +23,7 @@
         </label>
         <div class="pizza-form__list">
             <app-pizza-toppings [toppings]="toppings"
-                                formArrayName="toppings"
+                                formControlName="toppings"
             ></app-pizza-toppings>
         </div>
 
@@ -47,7 +47,7 @@
                     *ngIf="exists"
                     (click)="removePizza()"
             >
-                Save changes
+                Delete Pizza
             </button>
         </div>
 

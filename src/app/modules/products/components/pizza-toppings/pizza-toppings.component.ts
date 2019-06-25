@@ -23,9 +23,6 @@ export class PizzaToppingsComponent implements ControlValueAccessor {
     private onTouch: () => void;
     private onModelChange: (val: Topping[]) => void;
 
-    constructor() {
-    }
-
     registerOnChange(fn: (val: Topping[]) => void): void {
         this.onModelChange = fn;
     }
