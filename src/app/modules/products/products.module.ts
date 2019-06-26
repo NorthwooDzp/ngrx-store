@@ -10,6 +10,8 @@ import {
     PizzaToppingsComponent
 } from './components';
 import { ProductItemComponent, ProductsComponent } from './containers';
+import { StoreModule } from '@ngrx/store';
+import * as fromStore from './store';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,8 @@ import { ProductItemComponent, ProductsComponent } from './containers';
     imports: [
         CommonModule,
         ProductsRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        StoreModule.forFeature('products', fromStore.reducers)
     ]
 })
 export class ProductsModule {
