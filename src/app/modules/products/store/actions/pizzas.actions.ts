@@ -9,6 +9,6 @@ export enum PizzasActionTypes {
 
 export const loadPizzas = createAction(PizzasActionTypes.LoadPizzas);
 
-export const loadPizzaFail = createAction(PizzasActionTypes.LoadPizzasFail);
+export const loadPizzasFail = createAction(PizzasActionTypes.LoadPizzasFail, props<{err: any}>());
 
-export const loadPizzaSuccess = createAction(PizzasActionTypes.LoadPizzasSuccess, props<Pizza[]>());
+export const loadPizzasSuccess = createAction(PizzasActionTypes.LoadPizzasSuccess, props<{pizzas: Pizza[]}>());

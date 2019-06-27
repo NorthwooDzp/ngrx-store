@@ -3,8 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
-import { PizzasService } from '../../sevices/pizzas.service';
-import { ToppingService } from '../../sevices/topping.service';
+import { PizzasService, ToppingService } from '../../sevices';
 
 @Component({
     selector: 'app-product-item',
@@ -56,7 +55,7 @@ export class ProductItemComponent implements OnInit {
     onCreate(event: Pizza): void {
         this.pizzaService.createPizza(event)
             .subscribe(pizza => {
-                this.router.navigate(['/products', pizza.id]);
+                this.router.navigate(['/products']);
             });
     }
 
