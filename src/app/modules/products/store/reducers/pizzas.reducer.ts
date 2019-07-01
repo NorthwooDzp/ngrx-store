@@ -1,7 +1,7 @@
-import { Pizza } from '../../models/pizza.model';
 import { Action, createReducer, on } from '@ngrx/store';
-import * as fromPizzas from '../actions/pizzas.actions';
 
+import { Pizza } from '../../models';
+import * as fromPizzas from '../actions/pizzas.actions';
 
 export interface PizzasState {
     entities: { [id: number]: Pizza };

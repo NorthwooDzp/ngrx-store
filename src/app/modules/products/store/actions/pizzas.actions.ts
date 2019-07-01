@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Pizza } from '../../models/pizza.model';
+import { Pizza } from '../../models';
 
 export enum PizzasActionTypes {
     LoadPizzas = '[Products] Load Pizzas',
