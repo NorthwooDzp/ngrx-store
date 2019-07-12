@@ -9,13 +9,7 @@ export enum ToppingsActionTypes {
 
 export const loadToppings = createAction(ToppingsActionTypes.LoadToppings);
 
-export const loadToppingsFail = createAction(
-    ToppingsActionTypes.LoadToppingsFail,
-    props<{ err: any }>()
-);
+export const loadToppingsFail = createAction(ToppingsActionTypes.LoadToppingsFail, props<{ err: any }>());
 
-export const loadToppingsSuccess = createAction(
-    ToppingsActionTypes.LoadToppingsSuccess,
-    props<{ toppings: Topping[] }>()
-);
+export const loadToppingsSuccess = createAction(ToppingsActionTypes.LoadToppingsSuccess, props<{ toppings: Topping[] }>());
 

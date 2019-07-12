@@ -1,7 +1,8 @@
-import { createReducer, on } from '@ngrx/store';
-import { Topping } from '../../models';
+import { Action, createReducer, on } from '@ngrx/store';
 
+import { Topping } from '../../models';
 import * as fromToppings from '../actions/toppings.actions';
+import { getEntitiesFromArray } from '../helpers';
 
 export interface ToppingsState {
     entities: { [id: number]: Topping };
@@ -17,5 +18,28 @@ export const initialState: ToppingsState = {
 
 const reducer = createReducer(
     initialState,
-    on()
-)
+    on(fromToppings.loadToppings, state => ({
+        ...state,
+        loading: true,
+        loaded: false
+    })),
+    on(fromToppings.loadToppingsSuccess, (state, payload) => {
+        const {toppings} = payload;
+        const entities = getEntitiesFromArray<Topping>(toppings, {...state.entities});
+        return {
+            ...state,
+            entities,
+            loaded: true,
+            loading: false
+        };
+    }),
+    on(fromToppings.loadToppingsFail, state => ({
+        ...state,
+        loading: false,
+        loaded: false
+    }))
+);
+
+export function toppingsReducer(state: ToppingsState | undefined, action: Action) {
+    return reducer(state, action);
+}

@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 
 import { Pizza } from '../../models';
 import * as fromPizzas from '../actions/pizzas.actions';
+import { getEntitiesFromArray } from '../helpers';
 
 export interface PizzasState {
     entities: { [id: number]: Pizza };
@@ -26,11 +27,7 @@ const reducer = createReducer(initialState,
     ),
     on(fromPizzas.loadPizzasSuccess, (state, payload) => {
             const {pizzas} = payload;
-            const entities = pizzas.reduce((enttites: {[id: number]: Pizza}, pizza) => ({
-                    ...enttites,
-                    [pizza.id]: pizza
-                }),
-                {...state.entities});
+            const entities = getEntitiesFromArray<Pizza>(pizzas, {...state.entities});
             return {
                 ...state,
                 entities,

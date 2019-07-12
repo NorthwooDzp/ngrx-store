@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { Topping } from '../models/topping.model';
+import { Topping } from '../models';
 
 @Injectable({
     providedIn: 'root'

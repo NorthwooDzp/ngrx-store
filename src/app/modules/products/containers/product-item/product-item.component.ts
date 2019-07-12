@@ -13,12 +13,13 @@ import * as fromStore from '../../store';
 export class ProductItemComponent implements OnInit {
     pizza$: Observable<Pizza>;
     visualize: Pizza;
-    toppings: Topping[];
+    toppings: Observable<Topping[]>;
 
     constructor(private store: Store<fromStore.ProductsState>) {
     }
 
     ngOnInit(): void {
+        this.store.dispatch(fromStore.loadToppings());
         this.pizza$ = this.store.select(fromStore.getSelectedPizza);
     }
 
