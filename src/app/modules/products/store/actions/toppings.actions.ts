@@ -5,6 +5,7 @@ export enum ToppingsActionTypes {
     LoadToppings = '[Products] Load Toppings',
     LoadToppingsFail = '[Products] Load Toppings Fail',
     LoadToppingsSuccess = '[Products] Load Toppings Success',
+    VisualizeToppings = '[Products] Visualize Toppings'
 }
 
 export const loadToppings = createAction(ToppingsActionTypes.LoadToppings);
@@ -13,3 +14,4 @@ export const loadToppingsFail = createAction(ToppingsActionTypes.LoadToppingsFai
 
 export const loadToppingsSuccess = createAction(ToppingsActionTypes.LoadToppingsSuccess, props<{ toppings: Topping[] }>());
 
+export const visualiseToppings = createAction(ToppingsActionTypes.VisualizeToppings, props<{ selectedToppings: number[] }>());

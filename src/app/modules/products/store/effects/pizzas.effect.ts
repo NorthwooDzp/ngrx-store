@@ -3,7 +3,14 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, exhaustMap } from 'rxjs/operators';
 
 import { PizzasService } from '../../sevices';
-import { loadPizzas, loadPizzasFail, loadPizzasSuccess } from '../actions/';
+import {
+    createPizza,
+    createPizzaFail,
+    createPizzaSuccess,
+    loadPizzas,
+    loadPizzasFail,
+    loadPizzasSuccess
+} from '../actions/';
 import { of } from 'rxjs';
 
 
@@ -21,6 +28,18 @@ export class PizzasEffects {
                 this.pizzasService.getPizzas().pipe(
                     map(pizzas => loadPizzasSuccess({pizzas})),
                     catchError(err => of(loadPizzasFail(err)))
+                )
+            )
+        )
+    );
+
+    createPizza$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(createPizza),
+            exhaustMap(action =>
+                this.pizzasService.createPizza(action.pizza).pipe(
+                    map(pizza => createPizzaSuccess({pizza})),
+                    catchError(err => of(createPizzaFail(err)))
                 )
             )
         )
