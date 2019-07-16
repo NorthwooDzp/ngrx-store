@@ -29,7 +29,16 @@ export const loadPizzasFail = createAction(PizzasActionTypes.LoadPizzasFail, pro
 export const loadPizzasSuccess = createAction(PizzasActionTypes.LoadPizzasSuccess, props<{pizzas: Pizza[]}>());
 
 // create actions
-
 export const createPizza = createAction(PizzasActionTypes.CreatePizza, props<{pizza: Pizza}>());
 export const createPizzaFail = createAction(PizzasActionTypes.CreatePizzaFail, props<{err: any}>());
 export const createPizzaSuccess = createAction(PizzasActionTypes.CreatePizzaSuccess, props<{pizza: Pizza}>());
+
+// update actions
+export const updatePizza = createAction(PizzasActionTypes.UpdatePizza, props<{pizza: Pizza}>());
+export const updatePizzaFail = createAction(PizzasActionTypes.UpdatePizzaFail, props<{err: any}>());
+export const updatePizzaSuccess = createAction(PizzasActionTypes.UpdatePizzaSuccess, props<{pizza: Pizza}>());
+
+// delete actions
+export const deletePizza = createAction(PizzasActionTypes.DeletePizza, props<{pizza: Pizza}>());
+export const deletePizzaFail = createAction(PizzasActionTypes.DeletePizzaFail, props<{err: any}>());
+export const deletePizzaSuccess = createAction(PizzasActionTypes.DeletePizzaSuccess, props<{pizza: Pizza}>());

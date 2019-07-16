@@ -42,19 +42,13 @@ export class ProductItemComponent implements OnInit {
     }
 
     onUpdate(pizza: Pizza): void {
-        /*this.pizzaService.updatePizza(event)
-            .subscribe(() => {
-                this.router.navigate(['/products']);
-            });*/
+        this.store.dispatch(fromStore.updatePizza({pizza}));
     }
 
     onRemove(pizza: Pizza): void {
         const remove = window.confirm('Are you sure?');
         if (remove) {
-            /*this.pizzaService.deletePizza(event)
-                .subscribe(() => {
-                    this.router.navigate(['/products']);
-                });*/
+            this.store.dispatch(fromStore.deletePizza({pizza}));
         }
     }
 

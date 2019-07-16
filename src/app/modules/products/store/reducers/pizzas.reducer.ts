@@ -44,7 +44,7 @@ const reducer = createReducer(initialState,
             }
         )
     ),
-    on(fromPizzas.createPizzaSuccess, (state, payload) => (
+    on(fromPizzas.createPizzaSuccess, fromPizzas.updatePizzaSuccess, (state, payload) => (
         {
             ...state,
             entities: {
@@ -52,7 +52,15 @@ const reducer = createReducer(initialState,
                 [payload.pizza.id]: payload.pizza
             }
         }
-    ))
+    )),
+    on(fromPizzas.deletePizzaSuccess, (state, payload) => {
+        const {pizza} = payload;
+        const {[pizza.id]: removed, ...entities} = state.entities;
+        return {
+            ...state,
+            entities
+        };
+    })
 );
 
 export function pizzasReducer(state: PizzasState | undefined, action: Action) {

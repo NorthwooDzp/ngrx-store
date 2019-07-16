@@ -88,10 +88,6 @@
           "name": "mushroom"
         },
         {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
           "id": 3,
           "name": "basil"
         },
@@ -122,6 +118,10 @@
         {
           "id": 12,
           "name": "tomato"
+        },
+        {
+          "id": 2,
+          "name": "bacon"
         }
       ],
       "id": 2
@@ -136,101 +136,13 @@
         {
           "id": 6,
           "name": "mushroom"
+        },
+        {
+          "id": 4,
+          "name": "chili"
         }
       ],
       "id": 3
-    },
-    {
-      "name": "Peper",
-      "toppings": [
-        {
-          "id": 9,
-          "name": "pepper"
-        },
-        {
-          "id": 8,
-          "name": "onion"
-        },
-        {
-          "id": 4,
-          "name": "chili"
-        },
-        {
-          "id": 7,
-          "name": "olive"
-        },
-        {
-          "id": 3,
-          "name": "basil"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "some",
-      "toppings": [
-        {
-          "id": 5,
-          "name": "mozzarella"
-        },
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 7,
-          "name": "olive"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "1234",
-      "toppings": [
-        {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 10,
-          "name": "pepperoni"
-        }
-      ],
-      "id": 6
-    },
-    {
-      "name": "fromStore one",
-      "toppings": [
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 7,
-          "name": "olive"
-        },
-        {
-          "id": 8,
-          "name": "onion"
-        },
-        {
-          "id": 5,
-          "name": "mozzarella"
-        },
-        {
-          "id": 12,
-          "name": "tomato"
-        },
-        {
-          "id": 4,
-          "name": "chili"
-        }
-      ],
-      "id": 7
     }
   ]
 }
