@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="products__list">
-        <div *ngIf="!pizzasLoaded$">
+        <div *ngIf="!(pizzasLoaded$ | async)">
             No pizzas, add one to get started
         </div>
         <app-pizza-item *ngFor="let pizza of pizzas$ | async" [pizza]="pizza">

@@ -1,6 +1,6 @@
 import { routerReducer, RouterReducerState, RouterStateSerializer } from '@ngrx/router-store';
 import { Params, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State {
     routerReducer: RouterReducerState<RouterStateUrl>;

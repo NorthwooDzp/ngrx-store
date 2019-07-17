@@ -23,7 +23,8 @@ export class RouterEffects {
                     this.router.navigate(path, {...queryParams, ...extras})
                 )
             ),
-        {dispatch: false});
+        {dispatch: false}
+    );
 
     navigateBack$ = createEffect(() =>
             this.actions$.pipe(

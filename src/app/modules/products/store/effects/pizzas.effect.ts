@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, exhaustMap } from 'rxjs/operators';
+import { catchError, map, exhaustMap, tap } from 'rxjs/operators';
 
+import { back, go } from '../../../../store';
 import { PizzasService } from '../../sevices';
 import {
     createPizza,
@@ -14,13 +15,15 @@ import {
     loadPizzasFail,
     loadPizzasSuccess,
     updatePizza,
-    updatePizzaFail
+    updatePizzaFail, updatePizzaSuccess
 } from '../actions/';
 import { of } from 'rxjs';
+import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
 
 
 @Injectable()
 export class PizzasEffects {
+    activeUrl: string;
 
     constructor(private actions$: Actions,
                 private pizzasService: PizzasService) {
@@ -57,7 +60,7 @@ export class PizzasEffects {
             map(action => action.pizza),
             exhaustMap(payload =>
                 this.pizzasService.updatePizza(payload).pipe(
-                    map(pizza => createPizzaSuccess({pizza})),
+                    map(pizza => updatePizzaSuccess({pizza})),
                     catchError(err => of(updatePizzaFail({err})))
                 )
             )
@@ -76,4 +79,32 @@ export class PizzasEffects {
             )
         )
     );
+
+    createPizzaSuccess$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(createPizzaSuccess),
+                map(action => action.pizza),
+                map(pizza => {
+                    console.log('navigation');
+                    return go({route: {path: [`${this.activeUrl.replace('new', `${pizza.id}`)}`]}});
+                })
+            ),
+        {dispatch: true}
+    );
+
+    deletePizzaSuccess$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(updatePizzaSuccess, deletePizzaSuccess),
+            map(() => back())
+        )
+    );
+
+    getCurrentUrl$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(ROUTER_NAVIGATED),
+                tap((action: RouterNavigatedAction) => {
+                    this.activeUrl = action.payload.routerState.url;
+                })
+            ),
+        {dispatch: false});
 }
