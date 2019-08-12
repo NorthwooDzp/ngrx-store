@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
-import { Pizza } from '../../models/pizza.model';
+import { Pizza } from '../../models';
 
 
 export const DROP_ANIMATION = trigger('drop', [

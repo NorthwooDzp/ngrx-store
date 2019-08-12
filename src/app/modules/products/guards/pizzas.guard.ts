@@ -3,10 +3,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ProductsState } from '../store/reducers';
-import { catchError, exhaustMap, filter, take, tap } from 'rxjs/operators';
+import { catchError, exhaustMap} from 'rxjs/operators';
 import { checkStore } from './checkStore';
-import { getToppingsLoaded } from '../store/selectors';
-import { loadToppings } from '../store/actions';
 
 @Injectable({
     providedIn: 'root'
